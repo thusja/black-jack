@@ -1,7 +1,7 @@
 import { getChips, setChips, applyGameResult, updateChipUI } from "../../utils/chip.js";
 import playSound from "../../utils/sound.js";
 
-const API_BASE = "http://192.168.0.34:3000/api/single";
+const API_BASE = "https://black-jack-evs5.onrender.com/api/single";
 let turnTimer = null;  // 전역 타이머 ID 저장용
 let standInProgress = false; // 중복 요청 방지
 const MIN_BET = 100;
