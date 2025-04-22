@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>블랙잭 모드 선택</title>
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🃏 블랙잭</h1>
+    <p class="subtitle">자산 로딩 중...</p>
+
+    <div class="mode-buttons">
+      <button id="single-btn">👤 싱글 플레이</button>
+      <button id="multi-btn">👥 멀티 플레이</button>
+    </div>
+
+    <div class="recharge-section">
+      <button id="recharge-btn" class="info-btn" style="display: none;">💸 칩 재충전하기</button>
+    </div>
+
+    <button id="rule-btn" class="info-btn">📘 블랙잭 규칙 보기</button>
+  </div>
+
+  <!-- 튜토리얼 모달 -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>📖 블랙잭 규칙</h2>
+      <ul>
+        <li>21점을 넘기지 않고 딜러보다 높은 점수를 만들면 승리</li>
+        <li>A는 1 또는 11로 유동적 계산</li>
+        <li>J, Q, K는 10점</li>
+        <li>21점을 초과하면 패배 (버스트)</li>
+        <li>딜러는 17 이상일 때 스탠드</li>
+        <li>처음 받은 두 장이 A + 10점 카드면 블랙잭!</li>
+      </ul>
+    </div>
+  </div>
+
+  <script type="module" src="js/index.js"></script>
+</body>
+</html>

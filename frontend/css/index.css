@@ -1,0 +1,128 @@
+:root {
+  --main-color: #7e8ce0;
+  --accent-color: #c4a7e7;
+  --light-bg: #f7f8fa;
+  --dark-text: #333;
+  --soft-shadow: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--light-bg);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 60px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 4px 16px var(--soft-shadow);
+}
+
+h1 {
+  color: var(--main-color);
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: var(--dark-text);
+}
+
+.mode-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 12px 28px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--main-color);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+
+button:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+.info-btn {
+  margin-top: 25px;
+  background: none;
+  border: 2px solid var(--main-color);
+  color: var(--main-color);
+}
+
+.info-btn:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+
+/* 모달 스타일 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 99;
+  left: 0; top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.4);
+  backdrop-filter: blur(2px);
+}
+
+.modal-content {
+  background-color: white;
+  padding: 25px 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 10% auto;
+  box-shadow: 0 4px 10px var(--soft-shadow);
+  animation: fadeIn 0.4s ease;
+}
+
+.modal-content h2 {
+  color: var(--main-color);
+  margin-bottom: 10px;
+}
+
+.modal-content ul {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.modal-content li {
+  margin: 10px 0;
+  font-size: 0.95rem;
+  color: var(--dark-text);
+}
+
+.close {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #999;
+}
+
+.close:hover {
+  color: black;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}

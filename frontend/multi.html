@@ -1,0 +1,61 @@
+<!-- 멀티 게임 화면 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>멀티 블랙잭</title>
+  <link rel="stylesheet" href="css/game.css" />
+  <link rel="stylesheet" href="css/multi.css" />
+</head>
+<body>
+  <div class="container">
+
+    <div class="header-row">
+      <h1>👥 멀티 블랙잭</h1>
+      <div class="header-controls">
+        <div class="chip-info">
+          💰 보유 칩: <span id="current-chips">--</span>칩
+        </div>
+        <button class="exit-btn" id="exit-btn">🏠 나가기</button>
+      </div>
+    </div>
+
+    <div class="betting-area">
+      <div class="betting-header">
+        <h3>방 입장</h3>
+      </div>
+      <input type="text" id="room-id" placeholder="방 ID" />
+      <input type="text" id="player-id" placeholder="플레이어 ID" />
+      <div class="chip-buttons-row">
+        <button id="create-btn" class="chip-btn">방 만들기</button>
+        <button id="join-btn" class="chip-btn">방 참가</button>
+        <button id="start-btn" class="chip-btn" disabled>게임 시작</button>
+      </div>
+    </div>
+
+    <div class="card-row">
+      <div>
+        <h3>🃏 딜러</h3>
+        <div id="dealer-cards" class="cards"></div> 
+        <div id="dealer-score" class="score-text"></div>
+      </div>
+    </div>
+
+    <div id="player-area"></div>
+
+    <div class="button-container">
+      <button id="hit-btn" disabled>히트</button>
+      <button id="stand-btn" disabled>스탠드</button>
+    </div>
+
+    <div class="message-container">
+      <div id="turn-message">턴 메시지 영역</div>
+      <div id="message" class="result-message"></div>
+    </div>
+    
+  </div>
+
+  <script type="module" src="js/multi/multi.js"></script>
+</body>
+</html>

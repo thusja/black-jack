@@ -1,0 +1,366 @@
+/* 미니멀 & 파스텔톤 UI 테마 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+:root {
+  --primary: #6c757d;          /* 연한 회색 */
+  --accent: #a5d8ff;           /* 파스텔 블루 */
+  --background: #f8f9fa;       /* 연한 배경 */
+  --text: #343a40;             /* 다크 그레이 */
+  --card-border: #dee2e6;      /* 카드 테두리 색 */
+  --highlight: #ffd6a5;        /* 파스텔 오렌지 */
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  padding: 20px;
+  margin: 0;
+}
+
+h1, h2 {
+  text-align: center;
+  color: var(--primary);
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #5c636a;
+}
+
+button:disabled {
+  background-color: #ced4da;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+.card-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cards {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  width: 90px;
+  height: 120px;
+  border-radius: 6px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  border: 1px solid var(--card-border);
+  object-fit: contain;
+  animation: fadeIn 0.4s ease;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-wrapper {
+  width: 90px;
+  height: 120px;
+  perspective: 800px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+  position: relative;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  backface-visibility: hidden;
+  object-fit: contain;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card-front {
+  transform: rotateY(180deg);
+  background-color: white;
+}
+
+.card-back {
+  background-color: var(--accent);
+  border: 2px solid var(--highlight);
+  background-image: repeating-linear-gradient(45deg, transparent 0, transparent 10px, rgba(0,0,0,0.03) 10px, rgba(0,0,0,0.03) 20px);
+}
+
+.score-text {
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--highlight);
+  margin-left: 10px;
+  padding: 4px 10px;
+  background: rgba(0,0,0,0.03);
+  border-radius: 10px;
+}
+
+.message-container {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 20px;
+  background: white;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+}
+
+#turn-message, #message {
+  padding: 10px;
+  font-size: 1rem;
+  border-left: 5px solid var(--accent);
+  background-color: #f1f3f5;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .card, .card-wrapper {
+    width: 70px;
+    height: 95px;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+
+  .score-text {
+    font-size: 0.9rem;
+  }
+
+  .message-container {
+    padding: 10px;
+  }
+}
+
+/* 기본 메시지 스타일 */
+.result-message {
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+  animation: fadeIn 0.4s ease;
+
+  background-color: white; 
+  color: #333 !important; 
+}
+
+/* 승리 스타일: 확대 + glow */
+.result-win {
+  color: #ffffff;
+  background-color: #2c6e49;
+  box-shadow: 0 0 12px 4px rgba(44, 110, 73, 0.6);
+  animation: winGlow 1.2s ease infinite;
+}
+
+/* 패배 스타일: 붉은 테두리 + scale */
+.result-lose {
+  color: #ffffff;
+  background-color: #d62828;
+  box-shadow: 0 0 8px 2px rgba(214, 40, 40, 0.5);
+  animation: loseShrink 0.6s ease;
+}
+
+/* 무승부 스타일: 중립톤 + subtle pulse */
+.result-push {
+  background-color: #999;
+  color: white;
+  animation: fadeIn 0.6s ease;
+}
+
+/* 애니메이션 정의 */
+@keyframes winGlow {
+  0%   { box-shadow: 0 0 8px 2px rgba(44,110,73,0.5); transform: scale(1); }
+  50%  { box-shadow: 0 0 15px 4px rgba(44,110,73,0.8); transform: scale(1.05); }
+  100% { box-shadow: 0 0 8px 2px rgba(44,110,73,0.5); transform: scale(1); }
+}
+
+@keyframes loseShrink {
+  0%   { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.9; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 헤더: 타이틀 + 칩 */
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 10px;
+  margin-bottom: 12px;
+}
+
+.header-controls {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+
+/* 보유 칩 표시 */
+.chip-info {
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: #2f4858;
+  background-color: #f1f3f5;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  white-space: nowrap;
+}
+
+/* 나가기 버튼 */
+.exit-btn {
+  background-color: #e76f51;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.exit-btn:hover {
+  background-color: #d9483d;
+}
+
+/* 베팅 UI 영역 */
+.betting-area {
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 0 10px;
+  text-align: center;
+}
+
+.betting-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.betting-area h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 0;
+}
+
+/* 칩 버튼 + 초기화 나란히 정렬 */
+.chip-buttons-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.chip-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* 칩 버튼 스타일 */
+.chip-btn {
+  background-color: #f9c74f;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.chip-btn:hover {
+  transform: scale(1.05);
+  background-color: #f9844a;
+}
+
+/* 베팅 요약 표시 */
+.betting-summary {
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #444;
+}
+
+.betting-summary strong {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* 초기화 버튼 */
+.reset-btn {
+  background-color: #dee2e6;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.reset-btn:hover {
+  background-color: #ced4da;
+}

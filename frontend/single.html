@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>블랙잭 싱글플레이</title>
+  <link rel="stylesheet" href="css/game.css" />
+</head>
+<body>
+  <div class="header-row">
+    <h1>🃏 싱글 블랙잭</h1>
+    <div class="header-controls">
+      <div class="chip-info">
+        💰 보유 칩: <span id="current-chips">--</span>칩
+      </div>
+      <button id="exit-btn" class="exit-btn">🚪 나가기</button>
+    </div>
+  </div>
+
+  <div class="betting-area">
+    <div class="betting-header">
+      <h3>베팅 금액 선택</h3>
+      <button id="reset-bet-btn" class="reset-btn">🔄 초기화</button>
+    </div>
+  
+    <div class="chip-buttons">
+      <button class="chip-btn" data-amount="100">💵 100</button>
+      <button class="chip-btn" data-amount="500">💵 500</button>
+      <button class="chip-btn" data-amount="1000">💵 1000</button>
+      <button class="chip-btn" data-amount="5000">💵 5000</button>
+    </div>
+  
+    <p class="betting-summary">
+      현재 베팅: <strong><span id="bet-amount">0</span></strong>칩
+    </p>
+  </div>
+
+  <div class="button-container">
+    <button id="start-btn" disabled>게임 시작</button>
+    <button id="hit-btn" disabled>히트</button>
+    <button id="stand-btn" disabled>스탠드</button>
+  </div>
+
+  <div class="game-area">
+    <section class="player-section">
+      <h2>플레이어</h2>
+      <div class="card-row">
+        <div id="player-cards" class="cards"></div>
+        <div id="player-score" class="score-text"></div>
+      </div>
+    </section>
+
+    <section class="dealer-section">
+      <h2>딜러</h2>
+      <div class="card-row">
+        <div id="dealer-cards" class="cards"></div>
+        <div id="dealer-score" class="score-text"></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="message-container">
+    <h3>턴 상태</h3>
+    <div id="turn-message">게임을 시작해주세요</div>
+  </div>
+
+  <div class="message-container">
+    <h3>결과</h3>
+    <div id="message">-</div>
+  </div>
+
+  <div class="chip-info chip-info-footer" style="display: none;">
+    💰 현재 보유 칩: <span id="current-chips-footer">--</span>칩
+  </div>
+  
+
+  <script type="module" src="./js/single/single.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+/* ===== 멀티 전용: 룸 입장 영역 ===== */
+
+.betting-area input[type="text"] {
+  width: 45%;
+  max-width: 250px;
+  padding: 10px 12px;
+  margin: 5px;
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: border 0.2s ease;
+}
+
+.betting-area input[type="text"]:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(165, 216, 255, 0.3);
+}
+
+.chip-buttons-row .chip-btn {
+  min-width: 110px;
+}
+
+/* 방 ID / 플레이어 ID 입력 영역 정렬 */
+.betting-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
