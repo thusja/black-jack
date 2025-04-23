@@ -67,6 +67,7 @@ document.getElementById("start-btn").addEventListener("click", async () => {
   // 칩 차감
   setChips(chips - currentBet); // 게임 시작 시 베팅 칩 차감
   updateChipUI(); // 칩 UI 업데이트
+  playSound("cardFlip"); // 🔊 카드 사운드 미리 트리거 (모바일 대응)
 
   // 서버 게임 시작 요청
   const res = await fetch(`${API_BASE}/start`);
@@ -132,11 +133,6 @@ function renderGame(state) {
     img.alt = card.code;
     img.classList.add("card"); // 애니메이션용
     playerDiv.appendChild(img);
-
-    // 카드 효과음
-    if (!state.gameOver && state.playerHand.length === 2) {
-      playSound("cardFlip");
-    }
   });
 
   // 딜러 카드 출력
