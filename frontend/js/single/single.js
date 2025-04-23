@@ -132,6 +132,11 @@ function renderGame(state) {
     img.alt = card.code;
     img.classList.add("card"); // 애니메이션용
     playerDiv.appendChild(img);
+
+    // 카드 효과음
+    // if (!state.gameOver && state.playerHand.length === 2) {
+    //   playSound("cardFlip");
+    // }
   });
 
   // 딜러 카드 출력
