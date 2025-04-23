@@ -78,7 +78,6 @@ document.getElementById("start-btn").addEventListener("click", async () => {
     behavior: "smooth",
     block: "center"
   });
-  playSound("cardFlip"); // 🔊 카드 사운드 미리 트리거 (모바일 대응)
 });
 
 // 히트 버튼 클릭 시 -> 서버에 POST 요청 -> 플레이어가 한장 더 받기
