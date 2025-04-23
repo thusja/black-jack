@@ -6,7 +6,7 @@
 
 - 🔗 **Homepage**: [BlackJack](https://black-jack-xi-lovat.vercel.app/)
 - 💻 **GitHub**: [GitHub](https://github.com/thusja/black-jack)
-- 📄 **발표 자료**: [notion](https://rough-lime-f80.notion.site/HTML5-1d12d24c870d80a7be89cd0cc92f10b0)
+- 📄 **발표 자료**: [Notion](https://rough-lime-f80.notion.site/HTML5-1d12d24c870d80a7be89cd0cc92f10b0)
 
 ---
 
