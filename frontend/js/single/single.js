@@ -67,7 +67,6 @@ document.getElementById("start-btn").addEventListener("click", async () => {
   // 칩 차감
   setChips(chips - currentBet); // 게임 시작 시 베팅 칩 차감
   updateChipUI(); // 칩 UI 업데이트
-  playSound("cardFlip"); // 🔊 카드 사운드 미리 트리거 (모바일 대응)
 
   // 서버 게임 시작 요청
   const res = await fetch(`${API_BASE}/start`);
@@ -79,6 +78,7 @@ document.getElementById("start-btn").addEventListener("click", async () => {
     behavior: "smooth",
     block: "center"
   });
+  playSound("cardFlip"); // 🔊 카드 사운드 미리 트리거 (모바일 대응)
 });
 
 // 히트 버튼 클릭 시 -> 서버에 POST 요청 -> 플레이어가 한장 더 받기
